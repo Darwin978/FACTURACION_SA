@@ -41,8 +41,8 @@ public class FacturaControler {
         factura.setPersonaFactura(persona);
 
         facturaRepository.save(factura);
-        ItemFactura itemFactura = new ItemFactura();
         facturaDto.getIdItems().forEach(item -> {
+            ItemFactura itemFactura = new ItemFactura();
             itemFactura.setFactura(factura);
             itemFactura.setPrecio(item.getPrecio());
             itemFactura.setCantidad(item.getCantidad());
@@ -71,8 +71,8 @@ public class FacturaControler {
             factura.setPersonaFactura(persona);
 
             facturaRepository.save(factura);
-            ItemFactura itemFactura = new ItemFactura();
             facturaDto.getIdItems().forEach(item -> {
+                ItemFactura itemFactura = new ItemFactura();
                 itemFactura.setFactura(factura);
                 itemFactura.setPrecio(item.getPrecio());
                 itemFactura.setCantidad(item.getCantidad());
@@ -91,6 +91,7 @@ public class FacturaControler {
     public Object deleteFactura(Integer idFactura){
         if ( null != facturaRepository.findByIdFactura(idFactura)) {
             Factura factura = facturaRepository.findByIdFactura(idFactura);
+            //itemFacturaRepository.deleteAllByFactura(factura);
             facturaRepository.delete(factura);
             return "Eliminacion correcta";
         }else {

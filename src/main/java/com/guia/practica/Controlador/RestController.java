@@ -93,6 +93,7 @@ public class RestController {
         return rolRepository.findAll();
     }
 
+    @Autowired
     private FacturaControler facturaControler;
     @PostMapping("/save_factura")
     public Object ItemFac(@RequestBody FacturaDTO facturaDto){

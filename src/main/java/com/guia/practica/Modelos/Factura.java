@@ -17,7 +17,7 @@ public class Factura {
     private double descuento;
     private double total;
 
-    @OneToMany(mappedBy = "factura")
+    @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemFactura> itemsFactura;
 
     @ManyToOne
